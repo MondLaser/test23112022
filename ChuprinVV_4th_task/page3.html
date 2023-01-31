@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Пошук</title>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        <style>
+            #string { font-size: 1.4em; }
+            #selectable .ui-selecting { background: #FECA40; }
+            #selectable .ui-selected { background: #F39814; color: white; }
+            #selectable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+            #selectable li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }
+        </style>
+    </head>
+    <body>
+        <h1>Пошук</h1>
+        <form id="data" action="https://fom.in.ua/echo" method="post">
+            <script>
+                $( function() {
+                  $( "#slider-range" ).slider({
+                    range: true,
+                    min: 0,
+                    max: 150000,
+                    values: [ 10000, 49999 ],
+                    slide: function( event, ui ) {
+                      $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                    }
+                  });
+                  $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+                    " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+                } );
+            </script>
+            <label for="amount">ціна автомобіля:</label>
+                <input type="text" id="amount" readonly style="border:0; color:#cf3f0b; font-weight:bold;"  name="price_range">
+            <p id="slider-range"></p>
+                <label>
+                    <span>колір</span>
+                    <select name="color">
+                        <option value="1">білий</option>
+                        <option value="2">сірий</option>
+                        <option value="3" selected>чорний</option>
+                        <option value="4">красний</option>
+                        <option value="5">жовтий</option>
+                        <option value="6">зелений</option>
+                        <option value="7">синій</option>
+                        <option value="8">сріблястий</option>
+                    </select>
+                </label>
+                <label>
+                    <span>тип кузова</span>
+                    <select name="body_type">
+                        <option value="1">седан</option>
+                        <option value="2">хетчбек</option>
+                        <option value="3">універсал</option>
+                        <option value="4">купе</option>
+                        <option value="5">кабріолет</option>
+                        <option value="6">родстер</option>
+                        <option value="7">позашляховик</option>
+                        <option value="8">кросовер</option>
+                        <option value="9">пікап</option>
+                        <option value="10">фургон</option>
+                        <option value="11">мінівен</option>
+                    </select>
+                </label>
+                    <span>стан машини</span>
+                    <select name="car condition" multiple size="2">
+                        <option value="1">нова</option>
+                        <option value="2">юзана</option>
+                        <option value="3">після аварії</option>
+                        <option value="4">в кредиті</option>
+                        <option value="5">нерозмитнена</option>
+                    </select>
+                <label>
+                    <span>колір "металік"?</span>
+                    <input type="checkbox" name="metallic">
+                </label>
+                <label>
+                    <span>механіка</span>
+                    <input type="radio" value="механіка" name="transmission">
+                </label>
+                <label>
+                    <span>автомат</span>
+                    <input type="radio" value="автомат" name="transmission">
+                </label>
+                <label>
+                    <span>бензин</span>
+                    <input type="radio" value="бензин" name="fuel">
+                </label>
+                <label>
+                    <span>дизель</span>
+                    <input type="radio" value="дизель" name="fuel">
+                </label>
+                <label>
+                    <span>газ</span>
+                    <input type="radio" value="газ" name="fuel">
+                </label>
+                <h3>Рік випуску машини</h3>
+                <script>
+                    $( function() {
+                      var dateFormat = "mm/dd/yy",
+                        from = $( "#from" )
+                          .datepicker({
+                            defaultDate: "+1w",
+                            changeMonth: true,
+                            numberOfMonths: 2
+                          })
+                          .on( "change", function() {
+                            to.datepicker( "option", "minDate", getDate( this ) );
+                          }),
+                        to = $( "#to" ).datepicker({
+                          defaultDate: "+1w",
+                          changeMonth: true,
+                          numberOfMonths: 2
+                        })
+                        .on( "change", function() {
+                          from.datepicker( "option", "maxDate", getDate( this ) );
+                        });
+                   
+                      function getDate( element ) {
+                        var date;
+                        try {
+                          date = $.datepicker.parseDate( dateFormat, element.value );
+                        } catch( error ) {
+                          date = null;
+                        }
+                        return date;
+                      }
+                    } );
+                </script>
+                <label for="from">From</label>
+                <input type="text" id="from" name="від">
+                <label for="to">to</label>
+                <input type="text" id="to" name="до">
+                <h3>Бренд</h3>
+                <div>
+                    <select name="car_manufacturer">
+                        <option>alfa romeo</option>
+                        <option>bmw</option>
+                        <option>cadillac</option>
+                        <option>dacia</option>
+                        <option>ford</option>
+                        <option>hyundai</option>
+                        <option>isuzu</option>
+                        <option>kia</option>
+                        <option>mitsubishi</option>
+                        <option>nissan</option>
+                        <option>renault</option>
+                        <option>seat</option>
+                        <option>toyota</option>
+                        <option>volkswagen</option>
+                    </select>
+                </div>
+                <fieldset>
+                <legend>Країна</legend>
+                <div class="controlgroup-vertical">
+                    <select name="country">
+                    <option>Argentina</option>
+                    <option>Brazil</option>
+                    <option>Mexico</option>
+                    <option>Hungary</option>
+                    <option>India</option>
+                    <option>Egypt</option>
+                    <option>SLovenia</option>
+                    <option>Deutschland</option>
+                    <option>France</option>
+                    <option>Japan</option>
+                    <option>Great Britain</option>
+                    <option>USA</option>
+                    </select>
+                    <label for="vertical-spinner" class="ui-controlgroup-label"></label>
+                    <input id="vertical-spinner" class="ui-spinner-input">
+                </div>
+                </fieldset>
+                <script>
+                    $( function() {
+                      $( "#selectable" ).selectable({
+                        stop: function() {
+                          var result = $( "#select-result" ).empty();
+                          $( ".ui-selected", this ).each(function() {
+                            var index = $( "#selectable li" ).index( this );
+                            result.append( " #" + ( index + 1 ) );
+                          });
+                        }
+                      });
+                    } );
+                    </script>
+                <h3>Комфорт</h3>
+                <p id="feedback" name="comfort">
+                    <span>You&apos;ve selected:</span> <span id="select-result">none</span>.
+                </p>
+                <ol id="selectable">
+                    <li class="ui-widget-content">Кондиціонер</li>
+                    <li class="ui-widget-content">Чохли на сидіння</li>
+                    <li class="ui-widget-content">Телевізори в підголівниках</li>
+                    <li class="ui-widget-content">Люк</li>
+                    <li class="ui-widget-content">Шкіряний салон</li>
+                </ol>
+            <button type="submit" form="data">Submit form</button>
+        </form>
+    </body>
+</html>

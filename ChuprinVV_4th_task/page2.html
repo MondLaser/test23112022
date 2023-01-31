@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset=utf-8">
+        <title>Sign In</title>
+    </head>
+    <body>
+        <h1>Sign In</h1>
+        <form action="https://fom.in.ua/echo" method="post">
+            <p>
+                <label>
+                    <span>E-mail</span>
+                    <input type="email" name="email" placeholder="YOUR E-MAIL"required>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <span>Password</span>
+                    <input type="password" name="password" placeholder="PASSWORD" required minlength="4"
+                    maxlength="8">
+                </label>
+            </p>
+            <p>
+                <label>
+                    <span>Сохранить пароль?</span>
+                    <input type="checkbox" name="YesOrNo">
+                </label>
+            </p>
+            <button type="submit">Submit form</button>
+        </form>
+    </body>
+</html>
