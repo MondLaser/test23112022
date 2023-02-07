@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+.image__holder img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-left: 20%;
+    margin: 0 auto;
+    }
+.card {
+    display: inline-block;
+    background-color: #E0E0E0;
+    margin-bottom: 30px;
+    margin-right: 3.945%;
+    width: 29%;
+    vertical-align: middle;
+    text-align: center;
+}
+.card__title {
+    font-weight: 700;
+    padding: 8px;
+    overflow:hidden;
+    height: 27px;
+}
+.card__descr {
+    font-weight: 400;
+    padding: 10px;
+}
+.container {
+    background-color: #E5E5E5;
+    margin: 0 auto;
+    max-width: 660px;
+}
+.warehouse {
+    margin-right: -3.945%;
+}
+
