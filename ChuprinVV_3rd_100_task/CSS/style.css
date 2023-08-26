@@ -1,0 +1,64 @@
+td, tr, table{
+    border: 2px solid #000;
+    border-style:groove;
+    border-collapse: separate;
+}
+table {
+    text-align: center;
+    font-family: Arial;
+    height: 200px;
+}
+.td_red_bgcolor {
+    background-color: rgb(255, 0, 0)
+}
+.td_black_bgcolor {
+    background-color:black
+}
+.td_blue_bgcolor {
+    background-color: blue
+}
+.td_yellow_bgcolor {
+    background-color: yellow
+}
+table{
+    table-layout: fixed
+ }
+.first_row {
+    height: 100px
+}
+.second_row {
+    height: 200px
+}
+.third_row {
+    height: 200px
+}
+.forth_row {
+    height: 100px
+}
+.fifth_row {
+    height: 100px
+}
+.sixth_row {
+    height: 60px
+}
+.seventh_row {
+    height: 40px
+}
+.first_col {
+    width: 100px
+}
+.second_col {
+    width: 150px
+}
+.third_col {
+    width: 260px
+}
+.forth_col {
+    width: 200px
+}
+.fifth_col {
+    width: 200px
+}
+.sixth_col {
+    width: 40px
+}
