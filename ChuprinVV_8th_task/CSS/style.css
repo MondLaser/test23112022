@@ -1,0 +1,33 @@
+@import "header.css";
+@import "cards.css";
+* {
+    font-family: Arial;
+    box-sizing: border-box;
+}
+.container__top {
+    margin: 0 auto;
+}
+.header__top {
+    max-width: 100%;
+    font-weight: 700;
+    padding: 15px;
+    background-color: rgb(2, 126, 215);
+    text-align: center;
+    color: rgb(255, 255, 255)
+}
+.header__subtitle {
+    text-transform: uppercase
+}
+.container__main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.about__us {
+    display: inline-block;
+    margin: 0 20%
+}
+.header__2 {
+    font-weight: 700;
+    padding: 15px;
+    background-color: lightskyblue;
+}

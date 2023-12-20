@@ -1,0 +1,27 @@
+* {
+    font-family: Arial;
+    box-sizing: border-box;
+}
+.header > nav {
+    max-width: 60%;
+}
+.header__nav {
+    list-style: none;
+}
+.override {
+    padding-inline-start: 0px;
+}
+.header__li {
+    display: inline-block;
+    margin-right: 4%;
+}
+.text__decor {
+    text-decoration: none;
+}
+.footer {
+    text-align: left;
+}
+.footer__links--1 {
+    display: block;
+    margin: 3% 0% 0% 0%;
+}
